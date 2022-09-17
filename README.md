@@ -8,6 +8,8 @@ An addon to manage player bots with basic features for the CMaNGOS server and it
 ### Install
 * Download ZIP.
 * Unpack inside Interface/AddOns. 
+* Summon the interface using `/botmanager` or `/bm`.
+  * Summon the mini interface using `/bm mini`.
 
 ### Todo
 Anyone is welcome to help, but the next things to do are:
