@@ -1,0 +1,216 @@
+<Ui xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="Frame.lua" />
+	<Frame name="BotManagerUI" inherits="BackdropTemplate" hidden="true" parent="UIParent" toplevel="true" movable="true" enableMouse="true" clampedToScreen="true">
+		<Size x="368" y="346" />
+		<Anchors>
+			<Anchor x="-10" y="-14" point="CENTER" />
+		</Anchors>
+		<KeyValues>
+			<KeyValue key="backdropInfo" value="BACKDROP_DIALOG_32_32" keyType="string" type="global" />
+		</KeyValues>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets left="11" right="12" top="12" bottom="11" />
+			<TileSize val="32" />
+			<EdgeSize val="32" />
+		</Backdrop>
+		<Layers>
+			<Layer>
+				<Texture file="Interface\QuestFrame\UI-HorizontalBreak">
+					<Size x="256" y="32" />
+					<Anchors>
+						<Anchor y="125" point="CENTER" />
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<FontString inherits="GameFontNormal" font="Fonts\MORPHEUS.TTF" text="Bot Manager">
+					<Size x="362" y="55" />
+					<Anchors>
+						<Anchor y="-7" point="TOP" />
+					</Anchors>
+					<FontHeight val="26" />
+				</FontString>
+				<FontString inherits="GameFontNormal" font="Fonts\FRIENDS.TTF" text="Group" justifyH="LEFT">
+					<Size x="80" y="32" />
+					<Anchors>
+						<Anchor x="71" y="-70" point="TOPLEFT" />
+					</Anchors>
+					<FontHeight val="16" />
+				</FontString>
+				<FontString inherits="GameFontNormal" font="Fonts\FRIENDS.TTF" text="Selected" justifyH="LEFT">
+					<Size x="80" y="32" />
+					<Anchors>
+						<Anchor x="224" y="-70" point="TOPLEFT" />
+					</Anchors>
+					<FontHeight val="16" />
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="autoEquipToggler" inherits="UIPanelButtonTemplate" text="Auto Equip On/Off">
+				<Size x="146" y="36" />
+				<Anchors>
+					<Anchor x="33" y="-157" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						autoEquipToggler_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="sellWhiteGreensBtn" inherits="UIPanelButtonTemplate" text="Sell All Junk On/Off">
+				<Size x="146" y="36" />
+				<Anchors>
+					<Anchor x="186" y="-157" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						sellWhiteGreensBtn_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="repairBtn" inherits="UIPanelButtonTemplate" text="Repair gear">
+				<Size x="146" y="36" />
+				<Anchors>
+					<Anchor x="33" y="-199" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						repairBtn_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="quitBtn" setAllPoints="true" text="">
+				<Size x="32" y="32" />
+				<Anchors>
+					<Anchor x="-8" y="-7" point="TOPRIGHT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						quitBtn_OnClick()
+					</OnClick>
+				</Scripts>
+				<NormalTexture file="Interface\BUTTONS\UI-Panel-MinimizeButton-Up">
+					<TexCoords left="0" right="1" top="0" bottom="1" />
+				</NormalTexture>
+				<PushedTexture file="Interface\BUTTONS\UI-Panel-MinimizeButton-Down">
+					<TexCoords left="0" right="1" top="0" bottom="1" />
+				</PushedTexture>
+				<DisabledTexture file="Interface\BUTTONS\UI-Panel-MinimizeButton-Disabled">
+					<TexCoords left="0" right="1" top="0" bottom="1" />
+				</DisabledTexture>
+				<HighlightTexture file="Interface\BUTTONS\UI-Panel-MinimizeButton-Highlight" alphaMode="ADD">
+					<TexCoords left="0" right="1" top="0" bottom="1" />
+				</HighlightTexture>
+			</Button>
+			<CheckButton name="grpCheck" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Size x="32" y="32" />
+				<Anchors>
+					<Anchor x="33" y="-70" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						grpCheck_OnClick()
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="singleCheck" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Size x="32" y="32" />
+				<Anchors>
+					<Anchor x="186" y="-70" point="TOPLEFT" />
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="activeBotName2" inherits="GameFontNormal" text="(bot not set)" justifyH="LEFT">
+							<Size x="95" y="23" />
+							<Anchors>
+								<Anchor x="51" y="-30" point="TOPLEFT" />
+							</Anchors>
+							<Color g="1" b="1" />
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Button name="setBotBtn" inherits="UIPanelButtonTemplate" text="Set">
+						<Size x="42" y="24" />
+						<Anchors>
+							<Anchor x="3" y="-30" point="TOPLEFT" />
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								setBotBtn2_OnClick()
+							</OnClick>
+						</Scripts>
+					</Button>
+				</Frames>
+				<Scripts>
+					<OnClick>
+						singleCheck_OnClick()
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+			<Button name="miniBtn" inherits="UIPanelCloseButton" text="Button1">
+				<Size x="32" y="32" />
+				<Anchors>
+					<Anchor x="8" y="-7" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						miniBtn_OnClick()
+					</OnClick>
+				</Scripts>
+				<NormalTexture file="Interface\BUTTONS\UI-Panel-HideButton-Up" />
+				<PushedTexture file="Interface\BUTTONS\UI-Panel-HideButton-Down" />
+			</Button>
+			<Button name="followModeBtn" inherits="UIPanelButtonTemplate" text="Follow Near/Far">
+				<Size x="146" y="36" />
+				<Anchors>
+					<Anchor x="186" y="-199" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						followModeBtn_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="questBtn" inherits="UIPanelButtonTemplate" text="Get Quests (NPC)">
+				<Size x="146" y="36" />
+				<Anchors>
+					<Anchor x="33" y="-241" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						questFetchBtn_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="completeQuestBtn" inherits="UIPanelButtonTemplate" text="Complete Quests">
+				<Size x="146" y="36" />
+				<Anchors>
+					<Anchor x="75" y="-86" point="CENTER" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						completeQuestBtn_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="helpBtn" inherits="UIPanelButtonTemplate" text="More commands...">
+				<Size x="146" y="36" />
+				<Anchors>
+					<Anchor y="-129" point="CENTER" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						helpBtn_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				interface_OnLoad()
+			</OnLoad>
+		</Scripts>
+	</Frame>
+</Ui>

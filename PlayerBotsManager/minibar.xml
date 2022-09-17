@@ -1,0 +1,181 @@
+<Ui xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="minibar.lua" />
+	<Frame name="miniBar" inherits="BackdropTemplate" hidden="true" movable="true" frameStrata="HIGH" enableMouse="true" clampedToScreen="true">
+		<Size x="179" y="207" />
+		<Anchors>
+			<Anchor x="34" y="-197" point="TOPLEFT" />
+		</Anchors>
+		<KeyValues>
+			<KeyValue key="backdropInfo" value="BACKDROP_DIALOG_32_32" keyType="string" type="global" />
+		</KeyValues>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets left="11" right="12" top="12" bottom="11" />
+			<TileSize val="32" />
+			<EdgeSize val="32" />
+		</Backdrop>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString inherits="GameFontNormal" text="Mini Actions Bar" justifyH="LEFT">
+					<Size x="113" y="20" />
+					<Anchors>
+						<Anchor x="21" y="-14" point="TOPLEFT" />
+					</Anchors>
+				</FontString>
+				<FontString name="activeBotName" inherits="GameFontNormal" text="(bot not set)">
+					<Size x="86" y="20" />
+					<Anchors>
+						<Anchor x="69" y="-42" point="TOPLEFT" />
+					</Anchors>
+					<Color g="1" b="1" />
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="miniDefend" inherits="UIPanelButtonTemplate" text="Defend">
+				<Size x="64" y="23" />
+				<Anchors>
+					<Anchor x="91" y="-103" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						miniDefend_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="miniAssist" inherits="UIPanelButtonTemplate" text="Assist">
+				<Size x="64" y="23" />
+				<Anchors>
+					<Anchor x="21" y="-132" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						miniAssist_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="miniCC" inherits="UIPanelButtonTemplate" text="CC">
+				<Size x="64" y="23" />
+				<Anchors>
+					<Anchor x="91" y="-132" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						miniCC_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="miniStay" inherits="UIPanelButtonTemplate" text="Stay">
+				<Size x="64" y="23" />
+				<Anchors>
+					<Anchor x="21" y="-161" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						miniStay_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="miniPull" inherits="UIPanelButtonTemplate" text="Pull">
+				<Size x="64" y="23" />
+				<Anchors>
+					<Anchor x="21" y="-103" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						miniPull_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="miniQuitBtn" inherits="UIPanelCloseButton" setAllPoints="true" text="">
+				<Size x="32" y="32" />
+				<Anchors>
+					<Anchor x="-8" y="-8" point="TOPRIGHT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						miniQuitBtn_OnClick()
+					</OnClick>
+				</Scripts>
+				<NormalTexture file="Interface\BUTTONS\UI-Panel-MinimizeButton-Up">
+					<TexCoords left="0" right="1" top="0" bottom="1" />
+				</NormalTexture>
+				<PushedTexture file="Interface\BUTTONS\UI-Panel-MinimizeButton-Down">
+					<TexCoords left="0" right="1" top="0" bottom="1" />
+				</PushedTexture>
+				<DisabledTexture file="Interface\BUTTONS\UI-Panel-MinimizeButton-Disabled">
+					<TexCoords left="0" right="1" top="0" bottom="1" />
+				</DisabledTexture>
+				<HighlightTexture file="Interface\BUTTONS\UI-Panel-MinimizeButton-Highlight" alphaMode="ADD">
+					<TexCoords left="0" right="1" top="0" bottom="1" />
+				</HighlightTexture>
+			</Button>
+			<Button name="setBotBtn" inherits="UIPanelButtonTemplate2" text="Set">
+				<Size x="42" y="23" />
+				<Anchors>
+					<Anchor x="21" y="-39" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						setBotBtn_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="miniFollow" inherits="UIPanelButtonTemplate" text="Follow">
+				<Size x="63" y="23" />
+				<Anchors>
+					<Anchor x="92" y="-161" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						miniFollow_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="dpsBtn" inherits="UIPanelButtonTemplate2" text="DPS">
+				<Size x="42" y="23" />
+				<Anchors>
+					<Anchor x="113" y="-74" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						dpsBtn_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="healBtn" inherits="UIPanelButtonTemplate2" text="Heal">
+				<Size x="42" y="23" />
+				<Anchors>
+					<Anchor x="67" y="-74" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						healBtn_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="tankBtn" inherits="UIPanelButtonTemplate2" text="Tank">
+				<Size x="42" y="23" />
+				<Anchors>
+					<Anchor x="21" y="-74" point="TOPLEFT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						tankBtn_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				self:RegisterForDrag("LeftButton");
+				miniBar_OnLoad()
+			</OnLoad>
+			<OnDragStart>
+				self:StartMoving();
+			</OnDragStart>
+			<OnDragStop>
+				self:StopMovingOrSizing();
+			</OnDragStop>
+		</Scripts>
+	</Frame>
+</Ui>

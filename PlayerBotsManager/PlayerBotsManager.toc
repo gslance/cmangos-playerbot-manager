@@ -1,0 +1,10 @@
+## Title: PlayerBotsManager
+## Version: 1.0
+## Author: Games by Lance
+## Interface: 30300
+
+minibar.lua
+minibar.xml
+
+Frame.xml
+Frame.lua
